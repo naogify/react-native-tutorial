@@ -1,19 +1,26 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { Component } from "react";
+import { Text, View } from "react-native";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Hello World</Text>
-    </View>
-  );
+class Greeting extends Component {
+  render() {
+    return (
+      <View style={{ alignItems: "center" }}>
+        <Text>
+          Hello {this.props.name}! I'm {this.props.age} year's old.
+        </Text>
+      </View>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+export default class LotsOfGreetings extends Component {
+  render() {
+    return (
+      <View style={{ alignItems: "center", top: 550 }}>
+        <Greeting name="Rexxar" age="19" />
+        <Greeting name="Jaina" age="21" />
+        <Greeting name="Valeera" age="22" />
+      </View>
+    );
   }
-});
+}
